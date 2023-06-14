@@ -11,3 +11,9 @@ The materials used in the project are as follows:
 ![image](https://github.com/ayamdhotekar/smartgreenhouse/assets/64487319/6fc56187-bdc7-4f05-a7d3-64106b9241bc)
 ![image](https://github.com/ayamdhotekar/smartgreenhouse/assets/64487319/13695f52-91a2-4c49-8c5d-ee39879e7bcd)
 
+The screenshots from serial monitor, blynk web app and blynk android app are as follows:
+![image](https://github.com/ayamdhotekar/smartgreenhouse/assets/64487319/27a646d8-b8a1-4690-b1f3-421b407818c3)
+![image](https://github.com/ayamdhotekar/smartgreenhouse/assets/64487319/8257a7fc-157f-4f6d-88a5-64670c9d9bce)
+![image](https://github.com/ayamdhotekar/smartgreenhouse/assets/64487319/faa04580-6fc5-450c-8387-fea082785efb)
+
+
