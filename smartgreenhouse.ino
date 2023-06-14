@@ -1,15 +1,15 @@
 #include<ctype.h>
-#include <DHT.h>
+#include <DHT.h>   
 #include <WiFi.h>
 #include <WiFiClient.h>
 #include <BlynkSimpleEsp32.h>
 
-#define BLYNK_PRINT Serial
+#define BLYNK_PRINT Serial   //use credentials from blynk app
 #define BLYNK_TEMPLATE_ID "TxxxxxxxxP"
 #define BLYNK_TEMPLATE_NAME "smartgreenhouse"
 #define BLYNK_AUTH_TOKEN "qIxxxxxxxxxxxxxxxx_I"
 
-#define SOILPIN 14
+#define SOILPIN 14  
 #define FANRELAY 26
 #define LIGHTRELAY1 25
 #define LIGHTRELAY2 33
@@ -18,7 +18,7 @@
 #define DHTPIN 13 // Digital pin connected to the DHT sensor
 #define DHTTYPE DHT11 // DHT 11
 
-char ssid[] = "Kxxh";
+char ssid[] = "Kxxh";  //enter wifi id and password
 char pass[] = "9xxxxxxxx8";
 float temperature ; 
 DHT dht(DHTPIN, DHTTYPE);
@@ -56,10 +56,10 @@ void loop() {
  
   Blynk.run();
 
-  Blynk.virtualWrite(V0, temperature );
-  Blynk.virtualWrite(V1, humidity);
-  Blynk.virtualWrite(V2, soilSensor);
-  Blynk.virtualWrite(V3, LDRval );
+  Blynk.virtualWrite(V0, temperature );  //virtual pins from blynk app
+  Blynk.virtualWrite(V1, humidity);      //virtual pins from blynk app
+  Blynk.virtualWrite(V2, soilSensor);    //virtual pins from blynk app
+  Blynk.virtualWrite(V3, LDRval );       //virtual pins from blynk app
   bool fanStatus = true ; 
   if (temperature > 33) {
     fanStatus = false ; 
@@ -67,7 +67,7 @@ void loop() {
   digitalWrite(FANRELAY, fanStatus);
 
 
-  bool lightStatus = true ; 
+  bool lightStatus = true ;   //loop to run LED light in pretermined condition 
   if (LDRval) {
     lightStatus= false ; 
   } 
@@ -75,7 +75,7 @@ void loop() {
   digitalWrite(LIGHTRELAY2, lightStatus);
 
 
-  bool pumpStatus = true ; 
+  bool pumpStatus = true ;   //loop to run pump in pretermined condition  
   if (soilSensor) {
     pumpStatus= false ; 
   } 
@@ -84,22 +84,22 @@ void loop() {
 
 
   
-  Serial.print("Temperature: ");
+  Serial.print("Temperature: ");  // monitoring temperature value from DHT11
   Serial.print(temperature);
   Serial.println(" degree Celcius");
 
-  Serial.print("Humidity: ");
+  Serial.print("Humidity: "); // monitoring humidity value from DHT11
   Serial.print(humidity);
   Serial.println("%");
 
-  Serial.print("Soil Moisture Sensor: ");
+  Serial.print("Soil Moisture Sensor: "); // if else loop for soil moisture sensor
   if (soilSensor) {
     Serial.println("Insufficient Water");
   } else {
     Serial.println("Sufficient Water");
   }
 
-  Serial.print("Light Intensity: ");
+  Serial.print("Light Intensity: ");  // if else loop for ldr
   if (LDRval) {
     Serial.println("Insufficient Light");
   } else {
